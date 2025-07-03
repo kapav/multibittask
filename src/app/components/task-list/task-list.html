@@ -1,0 +1,11 @@
+<h2>Список задач</h2>
+
+<ul *ngIf="tasks$ | async as tasks">
+  <li *ngFor="let task of tasks">
+    {{ task.title }} - {{task.status}}
+    <a [routerLink]="['/tasks', task.id]">Подробнее</a>
+    <button (click)="deleteTask(task.id)">Удалить</button>
+  </li>
+</ul>
+
+<a routerLink="/tasks/add">Добавить задачу</a>
